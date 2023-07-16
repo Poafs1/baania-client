@@ -35,13 +35,13 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
       name: '',
       postCode: '',
       price: '',
-      description: '',
+      desc: '',
     },
     validationSchema: Yup.object({
       name: Yup.string().required('Required'),
       postCode: Yup.string().required('Required'),
       price: Yup.number().required('Required'),
-      description: Yup.string(),
+      desc: Yup.string(),
     }),
     enableReinitialize: true,
     onSubmit: (values: IHouseCreate) => {
@@ -61,7 +61,7 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
         name: values.name,
         post_code: values.postCode,
         price: values.price,
-        desc: values.description,
+        desc: values.desc,
       })
       .catch(() => {
         setShowFailureAlert(true);
@@ -89,7 +89,7 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
         name: values.name,
         post_code: values.postCode,
         price: values.price,
-        desc: values.description,
+        desc: values.desc,
       })
       .catch(() => {
         setShowFailureAlert(true);
@@ -109,6 +109,7 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
     formik.setFieldValue('name', house.name);
     formik.setFieldValue('postCode', house.post_code);
     formik.setFieldValue('price', house.price);
+    formik.setFieldValue('desc', house.desc);
   }, [house]);
 
   if (showSuccessAlert) {
@@ -145,7 +146,11 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
           <InputForm formik={formik} label='Post Code' name='postCode' isInsideBoxLabel />
           <InputForm formik={formik} label='Price' name='price' type='number' isInsideBoxLabel />
         </div>
-        <Textarea label='Description' onChange={(e) => formik.setFieldValue('description', e.target.value)} />
+        <Textarea
+          label='Description'
+          defaultValue={house?.desc}
+          onChange={(e) => formik.setFieldValue('desc', e.target.value)}
+        />
       </form>
       {/* CTA */}
       <div className='space-x-2.5 flex justify-center'>

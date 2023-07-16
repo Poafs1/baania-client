@@ -3,10 +3,11 @@ import classNames from 'classnames';
 export interface ITextareaProps {
   label: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  defaultValue?: string;
 }
 
 const Textarea = (props: ITextareaProps) => {
-  const { label, onChange } = props;
+  const { label, onChange, defaultValue } = props;
 
   return (
     <div className='relative border border-[#E0E0E0] overflow-hidden rounded'>
@@ -15,6 +16,7 @@ const Textarea = (props: ITextareaProps) => {
       </div>
       <textarea
         onChange={onChange}
+        defaultValue={defaultValue}
         className={classNames('block w-full resize-none p-3.5 border-none focus:outline-none focus:ring-0', 'pt-10')}
       />
     </div>

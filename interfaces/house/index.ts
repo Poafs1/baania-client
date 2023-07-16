@@ -10,5 +10,5 @@ export interface IHouseCreate {
   name: string;
   postCode: string;
   price: string;
-  description: string;
+  desc: string;
 }
