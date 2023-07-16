@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  client:
+    container_name: baania-client
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    networks:
+      - baania-networks
+
+  nginx:
+    container_name: baania-nginx
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    ports:
+      - '80:80'
+    networks:
+      - baania-networks
+
+networks:
+  baania-networks:
+    driver: bridge
