@@ -61,7 +61,7 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
         name: values.name,
         post_code: values.postCode,
         price: values.price,
-        description: values.description,
+        desc: values.description,
       })
       .catch(() => {
         setShowFailureAlert(true);
@@ -89,7 +89,7 @@ const CreateHouseModal = (props: ICreateHouseModalProps) => {
         name: values.name,
         post_code: values.postCode,
         price: values.price,
-        description: values.description,
+        desc: values.description,
       })
       .catch(() => {
         setShowFailureAlert(true);
