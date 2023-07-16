@@ -13,15 +13,15 @@ services:
     networks:
       - baania-networks
 
-  nginx:
-    container_name: baania-nginx
-    build:
-      context: ./nginx
-      dockerfile: ./Dockerfile
-    ports:
-      - '80:80'
-    networks:
-      - baania-networks
+  # nginx:
+  #   container_name: baania-nginx
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - '80:80'
+  #   networks:
+  #     - baania-networks
 
 networks:
   baania-networks:
